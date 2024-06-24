@@ -28,7 +28,7 @@ appetizer_button.addEventListener('click', function() {
 // JavaScript object to store the prices
 const prices = {
     1: "€12.00",
-    2: "€12.00",
+    2: "€14.00",
     3: "€9.00",
     4: "€11.00",
     5: "€8.00",
