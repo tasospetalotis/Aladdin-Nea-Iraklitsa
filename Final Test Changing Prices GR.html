@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@300&display=swap" rel="stylesheet">
+
+<style>
+@keyframes select {
+	from {
+		opacity: 0;
+		transform: perspective(500px) translate3d(-165px, 100px, -100px) rotate3d(0, 0, 0, 60deg);
+	}
+	to {
+		opacity: 1;
+		transform: perspective(500px) translate3d(0, 0, 0);
+	}
+}
+
+.selected {
+	animation: select 1.9s ease;
+}
+
+#container {
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+#starter {
+	color: white;
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {
+	#container {
+		max-width: 499px;
+	}
+}
+
+.pop_up {
+  display: none;
+  position: absolute;
+  background-color: rgba(249, 247, 243, 0.6);
+  overflow: auto;
+  box-shadow: 8px 8px 5px 3px rgba(0,0,0,0.7);
+  z-index: 1;
+  padding: 10px 10px;
+  width: 210px;
+  backdrop-filter: blur(1px);
+  border-radius: 5px;
+  margin-top: -475px;
+  margin-left: -10px;
+}
+
+button {
+  background-color: none;
+  color: black;
+  width: 75px;
+  height: 35px;
+  font-size: 9px;
+  font-family: 'Literata', serif;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 8px 8px 5px 3px rgba(0,0,0,0.5);
+  background-image: url('https://i.postimg.cc/561GrKf4/Ceramic-Tiles-Digital-Design.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-right-radius: 60%;
+  border-bottom-left-radius: 60%;
+}
+
+button:focus {
+	background-color: white;
+	color: grey;
+	transition: all 0.2s;
+    border: 1px solid #F4DB99;
+    box-shadow: inset 0px 0px 10px 2px rgba(255, 255, 255);
+}
+
+.button0 {
+	margin-left: 5px;
+	margin-top: 0px;
+	position: relative;
+}
+
+.button2 {
+	margin-left: 5px;
+	margin-top: -4px;
+	position: relative;
+}
+
+body {
+	margin-right: 0;
+	font-family: 'Literata', serif;
+	background-color: none;
+}
+
+nav {
+  background-color: #CFB98D;
+  color: white;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  width: 60px;
+  height: 420px;
+  border-radius: 5px;
+  margin-left: 220px;
+  box-shadow: 8px 8px 5px 3px rgba(0,0,0,0.5);
+  background-image: url('https://i.postimg.cc/K1jZ2zCY/aladdin-nav-bar.jpg');
+  background-repeat: repeat;
+  background-size: 100%;
+  border-bottom-right-radius: 30%;
+}
+
+table {
+  text-align: left;
+  font-family: 'Literata', serif;
+  font-size: 8px;
+}  
+
+td1 {
+  font-size: 7px;
+  text-align: left;
+  font-family: 'Literata', serif; 
+}  
+
+@media screen and (min-width: 200px) {
+	em {
+		font-size: 100%;
+	}
+}
+
+h1 {
+  font-family: 'Literata', serif;
+  font-size: 8px;
+  margin-left: 10px;
+}  
+
+h2 {
+  font-family: 'Literata', serif;
+  font-size: 8px;
+  margin-left: 10px;
+} 
+</style>
+</head>
+<body>
+<h1 style="color:white"><b>**ΚΑΝΤΕ ΚΛΙΚ ΣΤΙΣ ΚΑΤΗΓΟΡΙΕΣ ΓΙΑ ΝΑ ΔΕΙΤΕ ΤΑ ΠΡΟΪΟΝΤΑ</b></h1>
+<h2 style="color:white"><b></b></h2>
+<div>
+    <div id="header">
+        <nav>
+            <div class="button0"><button id="salads"><b>Σαλάτες</b></button></div>          
+            <div class="button2"><button id="appetizer"><b>Ορεκτικά</b></button></div>
+        </nav>
+    </div>
+    <div id="container">
+        <div id="starter"></div>
+        <div class="pop_up" id="salads_pop_up">
+            <a>
+                <table>
+                   <tr>
+    <td style="min-width:170px"><b>1.Αλαντίν</b>
+  </td>
+    <td class="price" data-id="1"></td>
+          <tr>
+    <td style="min-width:160px"><em> πράσινα φύλλα, θαλασσινά, ρόδι
+./4/
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:170px"><b>2.Γιασεμί</b>
+  </td>
+    <td class="price" data-id="2"></td>
+          <tr>
+    <td style="min-width:160px"><em>Πράσινα φύλλα, πιπεριές στα κάρβουνα, κατσικίσιο τυρί, αποξηραμένα φρούτα. /1,7,10,8/
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:170px"><b>3.Χωριάτικη</b>
+  </td>
+    <td class="price" data-id="3"></td>
+          <tr>
+    <td style="min-width:160px"><em>αγγούρι, ντομάτα, ελιές, φέτα, κρεμμύδια, εξαιρετικό παρθένο ελαιόλαδο και μαϊντανός/7/.
+</em></td>
+  </tr>
+   <tr>
+    <td style="min-width:160px"><b>4.Ρόκα - Μαρούλι</b>
+  </td>
+    <td class="price" data-id="4"></td>
+
+            <tr>
+    <td style="min-width:80px"><em>ρόκα, μαρούλι, αποξηραμένη και φρέσκια ντομάτα, ξύδι μπαλσάμικο, εξαιρετικό παρθένο ελαιόλαδο και τυρί grana Padano /7,10/
+.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>5.Αγγουροντομάτα</b>
+  </td>
+    <td class="price" data-id="5"></td>
+         <tr>
+    <td style="min-width:80px"><em>Αγγούρια, ντομάτες, κρεμμύδια, ελιές, ρίγανη και έξτρα παρθένο ελαιόλαδο
+.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>5.1. Ταμπουλέ</b></td>
+    <td class="price" data-id="5.1"></td>
+<tr>
+    <td style="min-width:80px"><em>σιμιγδάλι, ελαιόλαδο, λεμόνι, μαϊντανός, ντομάτα, κρεμμύδι, δυόσμος, αλάτι, πιπέρι</em></td>
+  </tr>
+   <tr>
+    <td style="min-width:160px"><b>6.Τονοσαλάτα</b>
+  </td>
+    <td class="price" data-id="6"></td>
+         <tr>
+    <td style="min-width:80px"><em>Τόνος, μαρούλι, κρεμμύδια, ντρέσινγκ, ντοματίνια και έξτρα παρθένο ελαιόλαδο 
+./4/</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>7.Σαλάτα μοτσαρέλα ντομάτας</b></td>
+ <td class="price" data-id="7"></td>
+        <tr>
+    <td style="min-width:80px"><em>Ντομάτες, μοτσαρέλα, πέστο και έξτρα παρθένο ελαιόλαδο /7,10/.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>8.Σαλάτα του Καίσαρα (κλασική)</b></td>
+    <td class="price" data-id="8"></td>
+        <tr>
+    <td style="min-width:80px"><em>Μαρούλι, στήθος κοτόπουλου, κρουτόν, dressing, τυρί grana padano και έξτρα παρθένο ελαιόλαδο/7,1,10,4/.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>9.Τζατζίκι (Χειροποίητο)</b></td>
+    <td class="price" data-id="9"></td>
+<tr>
+    <td style="min-width:80px"><em>Ελληνικό γιαούρτι, αγγούρια, σκόρδο, άνηθο, ξύδι και έξτρα παρθένο ελαιόλαδο/7/
+.</em></td>
+  </tr>
+    <tr>
+    <td style="min-width:160px"><b>10.Τυροσαλάτα</b></td>
+    <td class="price" data-id="10"></td>
+        <tr>
+    <td style="min-width:80px"><em>Τυρί φέτα, καυτερές πιπεριές και εξαιρετικό παρθένο ελαιόλαδο /7/ 
+.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>11.Αρετούσα</b></td>
+    <td class="price" data-id="11"></td>
+        <tr>
+    <td style="min-width:80px"><em>μελιτζάνα, πιπεριά, σκόρδο, μαϊντανός, ελαιόλαδο, ξύδι, μαγιονέζα. /12,3/
+
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>12.Σκορδαλιά (Χειροποίητη)</b></td>
+    <td class="price" data-id="12"></td>
+<tr>
+    <td style="min-width:80px"><em>ψωμί, σκόρδο, καρύδια, ξύδι και έξτρα παρθένο ελαιόλαδο /1,8/.</em></td>
+  </tr>
+    <tr>
+    <td style="min-width:160px"><b>13.Μελιτζανοσαλάτα (Χειροποίητη)</b></td>
+    <td class="price" data-id="13"></td>
+        <tr>
+    <td style="min-width:80px"><em>Μελιτζάνα, πιπεριά Φλωρίνης, σκόρδο, μαϊντανός, ξύδι και έξτρα παρθένο ελαιόλαδο
+./12/
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>14.Ταραμάς (Χειροποίητη)</b></td>
+    <td class="price" data-id="14"></td>
+<tr>
+    <td style="min-width:80px"><em>Ψωμί, κρεμμύδια, λεμόνι, φυτικό λάδι, αυγά ψαριού και εξαιρετικό παρθένο ελαιόλαδο /1,4/ 
+.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>15.Ασορτή Σαλάτα (Χειροποίητη)</b></td>
+    <td class="price" data-id="15"></td>
+<tr>
+    <td style="min-width:80px"><em>τζατζίκι, μελιτζανοσαλάτα, τυροσαλάτα, σκόρδο πάστα, ταραμάς
+./1,4,7/</em></td>
+  </tr>
+          <tr>
+    <td style="min-width:100px"><br></td>
+    <td></td>
+  </tr>
+          <tr>
+    <td style="min-width:100px"><br></td>
+    <td></td>
+  </tr>
+            <tr>
+    <td style="min-width:100px"><br></td>
+    <td></td>
+  </tr>
+      <tr>
+      <td style="font-size:10px"><b>Aladdin Seafood and More</b></td>
+    <td><a><img src='https://i.postimg.cc/rKrwnRRJ/Aladdin-Logo.jpg' border='0' width="30px" /></a></td>
+  </tr> 
+                </table>
+            </a>
+        </div>
+        <div class="pop_up" id="appetizer_pop_up">
+            <a>
+                <table>
+                   <tr>
+    <td style="min-width:160px"><b>16.Αντζούγιες</b></td>
+    <td class="price" data-id="16"></td>
+<tr>
+    <td style="min-width:80px"><em></em></td>
+  </tr>
+  <tr>
+    <td style="min-width:170px"><b>17.Χταπόδι στη σχάρα</b>
+  </td>
+    <td class="price" data-id="17"></td>
+          <tr>
+    <td style="min-width:160px"><em>χταπόδι ψητό, ξύδι και έξτρα παρθένο ελαιόλαδο /14/.</em></td>
+  </tr>
+   <tr>
+    <td style="min-width:160px"><b>18.Φέτα</b>
+  </td>
+    <td class="price" data-id="18"></td>
+            <tr>
+    <td style="min-width:80px"><em>τυρί φέτα, ρίγανη και έξτρα παρθένο ελαιόλαδο /7/
+.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>19.Φέτα στη σχάρα</b>
+  </td>
+    <td class="price" data-id="19"></td>
+         <tr>
+    <td style="min-width:80px"><em>τυρί φέτα, ντομάτα, ρίγανη, πιπεριές και έξτρα παρθένο ελαιόλαδο /7/ 
+.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>20.Φέτα τηγανητή</b>
+  </td>
+    <td class="price" data-id="20"></td>
+         <tr>
+    <td style="min-width:80px"><em>τυρί φέτα, σουσάμι και μέλι /7,3,1/.</em></td>
+  </tr>
+   
+  <tr>
+    <td style="min-width:160px"><b>21.Χαλούμι Ψητό</b></td>
+ <td class="price" data-id="21"></td>
+        <tr>
+    <td style="min-width:80px"><em>χαλούμι και σάλτσα κρέμας βαλσάμικο./7/
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>22.Μελιτζάνα ψητή</b></td>
+    <td class="price" data-id="22"></td>
+        <tr>
+    <td style="min-width:80px"><em>Μελιτζάνα, ντομάτα, κρεμμύδι, σκόρδο, φέτα και έξτρα παρθένο ελαιόλαδο /7/
+.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>23.Τηγανητά κολοκυθάκια</b></td>
+    <td class="price" data-id="23"></td>
+<tr>
+    <td style="min-width:80px"><em>Κολοκυθάκια, αλεύρι και τζατζίκι στο πλάι
+ /1,7/.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>24.Μπουγιουρντί</b></td>
+    <td class="price" data-id="24"></td>
+<tr>
+    <td style="min-width:80px"><em>Τυρί φέτα, κίτρινο τυρί, ντομάτα, καυτερή πιπεριά τσίλι /7/
+.</em></td>
+  </tr>
+    <tr>
+    <td style="min-width:160px"><b>25.Κοτομπουκιές</b></td>
+    <td class="price" data-id="25"></td>
+        <tr>
+    <td style="min-width:80px"><em>κοτόπουλο, πατάτες και σάλτσα στο πλάι /7,1,10/.</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>26.Κολοκυθοκεφτέδες</b></td>
+    <td class="price" data-id="26"></td>
+<tr>
+    <td style="min-width:80px"><em>κολοκυθάκια, κρεμμύδι, μαϊντανός, άνηθος, τυρί και αυγό /1,7/.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>27.Τηγανητές πατάτες (φρέσκες)</b></td>
+    <td class="price" data-id="27"></td>
+        <tr>
+    <td style="min-width:80px"><em>πατάτες τηγανιτές και ρίγανη.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>28.Πατάτες τηγανιτές με τυρί (φρέσκες)</b></td>
+    <td class="price" data-id="28"></td>
+<tr>
+    <td style="min-width:80px"><em>πατάτες τηγανιτές, ρίγανη και φέτα
+./7/</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>29.Καυτερή πιπεριά </b></td>
+    <td class="price" data-id="29"></td>
+        <tr>
+    <td style="min-width:80px"><em>πιπεριά καυτερή, ξύδι, κρεμμύδι και έξτρα παρθένο ελαιόλαδο.
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>30.Σαρμαδάκια</b></td>
+    <td class="price" data-id="30"></td>
+<tr>
+    <td style="min-width:80px"><em>αμπελόφυλλα, ρύζι, κρεμμύδια, άνηθο και χυμό λεμονιού./1/
+</em></td>
+  </tr>
+  <tr>
+    <td style="min-width:160px"><b>31.Μαριναρισμένο ψάρι (ψητό)</b></td>
+    <td class="price" data-id="31"></td>
+        <tr>
+    <td style="min-width:80px"><em>ψάρι, ξύδι και εξαιρετικό παρθένο ελαιόλαδο /4/.
+</em></td>
+  </tr>
+  
+  <tr>
+    <td style="min-width:160px"><b>33.Ψωμί
+( Πίτα - Ψωμί ) /1/
+</b></td>
+    <td class="price" data-id="33"></td>
+        <tr>
+    <td style="min-width:80px"><em>
+</em></td>
+  </tr>
+    <tr>
+    <td style="min-width:100px"><br></td>
+    <td></td>
+  </tr>
+            <tr>
+    <td style="min-width:100px"><br></td>
+    <td></td>
+  </tr>
+      <tr>
+      <td style="font-size:10px"><b>Aladdin Seafood and More</b></td>
+    <td><a><img src='https://i.postimg.cc/rKrwnRRJ/Aladdin-Logo.jpg' border='0' width="30px" /></a></td>
+  </tr>
+                </table>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
